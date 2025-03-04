@@ -62,7 +62,8 @@
       align-items: center;
     }
 
-    .header-left img {
+    /* 给 Logo 添加一个独立的类 */
+    .header-left img.logo {
       height: 50px;
       margin-right: 1rem;
     }
@@ -197,13 +198,21 @@
         font-size: 2.5rem;
       }
     }
+
+    /* 使除Logo以外的图片都保持4:3比例 */
+    img:not(.logo) {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
   </style>
 </head>
 <body>
 <!-- Header with logo, navigation and language toggle -->
 <header>
   <div class="header-left">
-    <img src="Resources/Transparent.png" alt="Logo">
+    <img src="Resources/Transparent.png" alt="Logo" class="logo">
     <h1 data-en="Brain Resonate" data-zh="Brain Resonate 心脑学社">Brain Resonate</h1>
   </div>
   <nav>
@@ -270,6 +279,7 @@
      data-zh="我们在校内开设提供技术学分的脑科学课程，课程由社长教学，将理论与实践研究相结合，并提供技术学分。">
     We offer neuroscience courses within the school that provide technical credits. Our courses combine theory with practical research experience.
   </p>
+  <br>
   <div class="slider">
     <img src="Resources/Class1.jpg" alt="Class Image 1" class="slide active">
     <img src="Resources/Class2.jpg" alt="Class Image 2" class="slide">
@@ -283,6 +293,7 @@
      data-zh="聆听北京大学的学长与专家分享脑科学领域的最新动态与见解。">
     Hear from students and experts from Peking University as they share insights on the latest developments in neuroscience.
   </p>
+  <br>
   <div class="slider">
     <img src="Resources/Lecture1.jpg" alt="Lecture Image 1" class="slide active">
     <img src="Resources/Lecture2.jpg" alt="Lecture Image 2" class="slide">
@@ -313,7 +324,7 @@
   });
 </script>
 
-<!-- JavaScript for Carousel (针对每个 slider 单独初始化) -->
+<!-- JavaScript for Carousel (分别初始化每个 slider) -->
 <script>
   document.querySelectorAll('.slider').forEach(slider => {
     const slides = slider.querySelectorAll('.slide');
