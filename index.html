@@ -269,7 +269,6 @@
   <p data-en="We offer neuroscience courses within the school that provide technical credits. Our courses combine theory with practical research experience."
      data-zh="我们在校内开设提供技术学分的脑科学课程，课程由社长教学，将理论与实践研究相结合，并提供技术学分。">
     We offer neuroscience courses within the school that provide technical credits. Our courses combine theory with practical research experience.
-
   </p>
   <div class="slider">
     <img src="Resources/Class1.jpg" alt="Class Image 1" class="slide active">
@@ -283,7 +282,6 @@
   <p data-en="Hear from experts from Peking University as they share insights on the latest developments in neuroscience."
      data-zh="聆听北京大学的学长与专家分享脑科学领域的最新动态与见解。">
     Hear from students and experts from Peking University as they share insights on the latest developments in neuroscience.
-
   </p>
   <div class="slider">
     <img src="Resources/Lecture1.jpg" alt="Lecture Image 1" class="slide active">
@@ -315,15 +313,17 @@
   });
 </script>
 
-<!-- JavaScript for Carousel -->
+<!-- JavaScript for Carousel (针对每个 slider 单独初始化) -->
 <script>
-  const slides = document.querySelectorAll('.slide');
-  let currentSlide = 0;
-  setInterval(() => {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add('active');
-  }, 4000);
+  document.querySelectorAll('.slider').forEach(slider => {
+    const slides = slider.querySelectorAll('.slide');
+    let currentSlide = 0;
+    setInterval(() => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }, 4000);
+  });
 </script>
 </body>
 </html>
