@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brain Resonate | 心脑学社</title>
+  <style>
+    /* CSS Variables for consistent theming */
+    :root {
+      --primary-color: #8a2be2;
+      --secondary-color: #4b0082;
+      --accent-color: #ffd700;
+      --bg-gradient: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+      --text-color: #fff;
+      --header-bg: rgba(0, 0, 0, 0.3);
+      --card-bg: rgba(0, 0, 0, 0.25);
+      --transition-speed: 0.3s;
+      --border-radius: 8px;
+      --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* CSS Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background: var(--bg-gradient);
+      color: var(--text-color);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--header-bg);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 100;
+      transition: background var(--transition-speed);
+    }
+
+    header:hover {
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-left img {
+      height: 50px;
+      margin-right: 1rem;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav li {
+      cursor: pointer;
+      transition: color var(--transition-speed);
+    }
+
+    nav li:hover {
+      color: var(--accent-color);
+    }
+
+    .lang-toggle {
+      color: var(--text-color);
+      background: transparent;
+      border: 1px solid var(--text-color);
+      border-radius: 4px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      transition: background var(--transition-speed);
+    }
+
+    .lang-toggle:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 2rem;
+      margin-top: 70px; /* to offset fixed header */
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      background: var(--card-bg);
+      backdrop-filter: blur(5px);
+      margin: 2rem auto;
+      border-radius: var(--border-radius);
+      max-width: 1200px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .section h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--text-color);
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    /* Slider Styles */
+    .slider {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      margin: 0 auto;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--header-bg);
+      backdrop-filter: blur(10px);
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- Header with logo, navigation and language toggle -->
+<header>
+  <div class="header-left">
+    <img src="Resources/Transparent.png" alt="Logo">
+    <h1 data-en="Brain Resonate" data-zh="Brain Resonate 心脑学社">Brain Resonate</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#hero" style="color:inherit; text-decoration:none;">Home</a></li>
+      <li><a href="#research" style="color:inherit; text-decoration:none;">Research</a></li>
+      <li><a href="#courses" style="color:inherit; text-decoration:none;">Courses</a></li>
+      <li><a href="#lectures" style="color:inherit; text-decoration:none;">Lectures</a></li>
+    </ul>
+  </nav>
+  <button class="lang-toggle" id="langToggle">中文</button>
+</header>
+
+<!-- Hero Section -->
+<section class="hero" id="hero">
+  <h2 data-en="Welcome to Website of Brain Resonate" data-zh="欢迎来到 Brain Resonate 社团官网">
+    Welcome to Brain Resonate
+  </h2>
+  <p data-en="Brain Resonate is affiliated with the Technology Center of The Affiliated High School of Peking University and is dedicated to learning and exchanging knowledge for the Brain Bee neuroscience competition, as well as conducting research projects related to cognitive science."
+     data-zh="Brain Resonate 隶属于北京大学附属中学技术中心，致力于 Brain Bee 脑科学竞赛的学习交流与认知科学相关科研项目的开展。">
+    A dreamy fusion of neuroscience, technology, and innovative research. Join us as we explore the mysteries of the brain, exchange knowledge, and lead the forefront of cognitive science.
+  </p>
+</section>
+
+<!-- Research Section -->
+<section class="section" id="research">
+  <h3 data-en="Research" data-zh="科研项目">Research</h3>
+  <div class="grid">
+    <!-- Project 1 -->
+    <div>
+      <h4 data-en="Probiotics Impact on Cognitive Ability and Emotions in Adolescents: A Brain-Gut Axis Study (PREPRINT)"
+          data-zh="益生菌对青少年认知能力和情绪的影响：脑-肠轴研究 (预印本)">
+        Probiotics Impact on Cognitive Ability and Emotions in Adolescents: A Brain-Gut Axis Study (PREPRINT)
+      </h4>
+      <p data-en="The brain-gut axis is a two-way communication system between the central nervous system (CNS) and enteric nervous system (ENS), and recent studies have highlighted the critical role of gut microbes in regulating brain-gut axis function."
+         data-zh="脑-肠轴是中枢神经系统（CNS）与肠神经系统（ENS）之间的双向通信系统，近期研究强调了肠道微生物在调节脑-肠轴功能中的关键作用。">
+        The brain-gut axis is a two-way communication system between the central nervous system (CNS) and enteric nervous system (ENS), and recent studies have highlighted the critical role of gut microbes in regulating brain-gut axis function.
+      </p>
+      <p class="doi" data-en="DOI: 10.31234/osf.io/n8fwq_v1" data-zh="DOI: 10.31234/osf.io/n8fwq_v1">
+        DOI: 10.31234/osf.io/n8fwq_v1
+      </p>
+    </div>
+    <!-- Project 2 -->
+    <div>
+      <h4 data-en="Exploring the Connections between Romantic Desire and Mental Imagery"
+          data-zh="探究浪漫欲望与心理意象之间的关联">
+        Exploring the Connections between Romantic Desire and Mental Imagery
+      </h4>
+      <p data-en="This study explores the relationship between romantic desire and mental imagery. A questionnaire survey of 218 high school students was conducted to evaluate how mental imagery affects romantic feelings and their persistence."
+         data-zh="本研究探讨了浪漫欲望与心理意象之间的关联。通过对218名高中生的问卷调查，评估了心理意象如何影响浪漫情感及其持续性。">
+        This study explores the relationship between romantic desire and mental imagery. A questionnaire survey of 218 high school students was conducted to evaluate how mental imagery affects romantic feelings and their persistence.
+      </p>
+      <p class="doi" data-en="DOI: 10.25236/FSST.2023.051018" data-zh="DOI: 10.25236/FSST.2023.051018">
+        DOI: 10.25236/FSST.2023.051018
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Courses Section -->
+<section class="section" id="courses">
+  <h3 data-en="Courses" data-zh="课程">Courses</h3>
+  <p data-en="We offer neuroscience courses within the school that provide technical credits. Our courses combine theory with practical research experience."
+     data-zh="我们在校内开设提供技术学分的脑科学课程，课程由社长教学，将理论与实践研究相结合，并提供技术学分。">
+    We offer neuroscience courses within the school that provide technical credits. Our courses combine theory with practical research experience.
+
+  </p>
+  <div class="slider">
+    <img src="Resources/Class1.jpg" alt="Class Image 1" class="slide active">
+    <img src="Resources/Class2.jpg" alt="Class Image 2" class="slide">
+  </div>
+</section>
+
+<!-- Lectures Section -->
+<section class="section" id="lectures">
+  <h3 data-en="Lectures" data-zh="讲座">Lectures</h3>
+  <p data-en="Hear from experts from Peking University as they share insights on the latest developments in neuroscience."
+     data-zh="聆听北京大学的学长与专家分享脑科学领域的最新动态与见解。">
+    Hear from students and experts from Peking University as they share insights on the latest developments in neuroscience.
+
+  </p>
+  <div class="slider">
+    <img src="Resources/Lecture1.jpg" alt="Lecture Image 1" class="slide active">
+    <img src="Resources/Lecture2.jpg" alt="Lecture Image 2" class="slide">
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p data-en="© 2025 Brain Resonate. All rights reserved." data-zh="© 2025 Brain Resonate 版权所有。">
+    © 2025 Brain Resonate. All rights reserved.
+  </p>
+</footer>
+
+<!-- JavaScript for Language Toggle -->
+<script>
+  const langToggle = document.getElementById('langToggle');
+  const elements = document.querySelectorAll('[data-en]');
+
+  // Default language: English
+  let currentLang = 'en';
+
+  langToggle.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'zh' : 'en';
+    langToggle.textContent = currentLang === 'en' ? '中文' : 'English';
+    elements.forEach(el => {
+      el.textContent = el.getAttribute('data-' + currentLang);
+    });
+  });
+</script>
+
+<!-- JavaScript for Carousel -->
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let currentSlide = 0;
+  setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }, 4000);
+</script>
+</body>
+</html>
