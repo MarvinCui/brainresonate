@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Organization | 组织架构</title>
+    <style>
+        /* CSS Variables for consistent theming */
+        :root {
+            --primary-color: #ce99ff;
+            --secondary-color: #ae60e8;
+            --accent-color: #ffd700;
+            --bg-gradient: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            --text-color: #fff;
+            --header-bg: rgba(0, 0, 0, 0.3);
+            --card-bg: rgba(0, 0, 0, 0.25);
+            --transition-speed: 0.3s;
+            --border-radius: 8px;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--header-bg);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            z-index: 100;
+            transition: background var(--transition-speed);
+        }
+
+        header:hover {
+            background: rgba(0, 0, 0, 0.45);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Logo styling */
+        .header-left img.logo {
+            height: 50px;
+            margin-right: 1rem;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav li {
+            cursor: pointer;
+            transition: color var(--transition-speed);
+        }
+
+        nav li:hover {
+            color: var(--accent-color);
+        }
+
+        .lang-toggle {
+            color: var(--text-color);
+            background: transparent;
+            border: 1px solid var(--text-color);
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: background var(--transition-speed);
+        }
+
+        .lang-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hero Section for group photo placeholder */
+        .hero {
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            margin: 100px auto 2rem auto; /* to offset fixed header */
+            background: var(--card-bg);
+            backdrop-filter: blur(5px);
+            border-radius: var(--border-radius);
+            max-width: 1200px;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Section styling */
+        .section {
+            padding: 4rem 2rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(5px);
+            margin: 2rem auto;
+            border-radius: var(--border-radius);
+            max-width: 1200px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--text-color);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Grid for member cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        /* Member Card styling */
+        .member-card {
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            transition: transform var(--transition-speed);
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--header-bg);
+            backdrop-filter: blur(10px);
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Header with logo, navigation and language toggle -->
+<header>
+    <div class="header-left">
+        <img src="Resources/Transparent.png" alt="Logo" class="logo">
+        <h1 data-en="Brain Resonate Organization" data-zh="心脑学社组织架构">Organization</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html" style="color:inherit; text-decoration:none;">Home</a></li>
+            <li><a href="index.html" style="color:inherit; text-decoration:none;">Research</a></li>
+            <li><a href="index.html" style="color:inherit; text-decoration:none;">Courses</a></li>
+            <li><a href="index.html" style="color:inherit; text-decoration:none;">Lectures</a></li>
+            <li><a href="./organization.html" style="color:inherit; text-decoration:none;">Organization</a></li>
+        </ul>
+    </nav>
+    <button class="lang-toggle" id="langToggle">中文</button>
+</header>
+
+<!-- Hero Section: Group Photo Placeholder -->
+<section class="hero" id="hero">
+    <img src="Resources/groupPhoto.JPG" alt="Group Photo" style="width:100%; height:100%; object-fit:cover; border-radius: var(--border-radius);">
+</section>
+
+<!-- Members Section -->
+<section class="section" id="members">
+    <h3 data-en="Members (2025-2027)" data-zh="成员 (2025-2027)">Members (2025-2027)</h3>
+
+    <!-- 2025 Members -->
+    <h4 data-en="Class of 2025" data-zh="2025届">Class of 2025</h4>
+    <div class="grid">
+        <div class="member-card">
+            <p data-en="Honor President: Wen Zhenxiong" data-zh="荣誉社长：文振熊">Honor President: Wen Zhenxiong</p>
+        </div>
+        <div class="member-card">
+            <p data-en="Honor President: Liu Yuhan" data-zh="荣誉社长：刘雨涵">Honor President: Liu Yuhan</p>
+        </div>
+        <div class="member-card">
+            <p data-en="Member: " data-zh="成员：">Member: </p>
+        </div>
+        <!-- Add more 2025 members as needed -->
+    </div>
+
+    <!-- 2026 Members -->
+    <h4 data-en="Class of 2026" data-zh="2026届" style="margin-top:2rem;">Class of 2026</h4>
+    <div class="grid">
+        <div class="member-card">
+            <p data-en="President: Cui Boran" data-zh="社长：崔浡然">President: Cui Boran</p>
+        </div>
+        <div class="member-card">
+            <p data-en="Vice President: " data-zh="副社长：">Vice President: </p>
+        </div>
+        <div class="member-card">
+            <p data-en="Member: " data-zh="成员：">Member: </p>
+        </div>
+        <!-- Add more 2026 members as needed -->
+    </div>
+
+    <!-- 2027 Members -->
+    <h4 data-en="Class of 2027" data-zh="2027届" style="margin-top:2rem;">Class of 2027</h4>
+    <div class="grid">
+        <div class="member-card">
+            <p data-en="Member: " data-zh="成员：">Member: </p>
+        </div>
+        <div class="member-card">
+            <p data-en="Member: " data-zh="成员：">Member: </p>
+        </div>
+        <div class="member-card">
+            <p data-en="Member: " data-zh="成员：">Member: </p>
+        </div>
+        <!-- Add more 2027 members as needed -->
+    </div>
+</section>
+<!-- Admissions Section -->
+<!-- Admissions Section -->
+<section class="section" id="admissions">
+    <h3 data-en="Universities Admissions and Academic Programs Results" data-zh="大学和学术项目录取结果">Admissions Results</h3>
+    <p data-en="Below are the university admission results for club graduates and the academic project application" data-zh="以下是社团毕业生的大学申请结果和在校生的学术项目申请结果。" style="margin: 1rem 0; font-size: 1.5rem;"></p>
+    <ul style="list-style: none; padding: 0; margin: 0;">
+        <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">
+            <span data-en="Washington University in St. Louis" data-zh="圣路易斯华盛顿大学"></span>
+            <span>USNEWS #21</span>
+        </li>
+        <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">
+            <span data-en="New York Univeristy" data-zh="纽约大学"></span>
+            <span>USNEWS #30</span>
+        </li>
+        <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">
+            <span data-en="University of Illinois Urbana-Champaign BS in Computer Science and Anthropology " data-zh="伊利诺伊大学厄巴纳香槟 计算机科学和人类学"></span>
+            <span>CS Rankings #2</span>
+        </li>
+        <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">
+            <span data-en="Peking University Talented Youth Initiative" data-zh="北京大学全球精英人才A计划"></span>
+            <span data-en="Top 2 University in China" data-zh="中国排名前二"></span>
+        </li>
+        <!-- Add more admission items as needed -->
+    </ul>
+</section>
+
+
+
+<!-- Footer -->
+<footer>
+    <p data-en="© 2025 Brain Resonate. All rights reserved." data-zh="© 2025 Brain Resonate 版权所有。">© 2025 Brain Resonate. All rights reserved.</p>
+</footer>
+
+<!-- JavaScript for Language Toggle -->
+<script>
+    const langToggle = document.getElementById('langToggle');
+    const elements = document.querySelectorAll('[data-en]');
+    let currentLang = 'en';
+
+    langToggle.addEventListener('click', () => {
+        currentLang = currentLang === 'en' ? 'zh' : 'en';
+        langToggle.textContent = currentLang === 'en' ? '中文' : 'English';
+        elements.forEach(el => {
+            el.textContent = el.getAttribute('data-' + currentLang);
+        });
+    });
+
+    elements.forEach(el => {
+        el.textContent = el.getAttribute('data-' + currentLang);
+    });
+</script>
+</body>
+</html>
