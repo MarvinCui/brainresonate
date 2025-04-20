@@ -9,8 +9,7 @@
 > A sleek bilingual landing page powered by HTML, CSS, and vanilla JS  
 > 支持中英双语切换的现代响应式网站
 
-🌍 [Visit the Live Demo »](#)  
-📁 [`index.html`](./index.html) – Main page  
+🌍 [Visit the Live Demo »](https://brainresonate.vercel.app/)  
 🎨 Pure CSS theme with blurred glass, gradients, dark mode visuals
 
 ## 🎓 School Courses
